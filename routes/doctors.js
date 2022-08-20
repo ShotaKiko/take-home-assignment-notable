@@ -9,7 +9,10 @@ import {
 
 import { Validator } from "express-json-validator-middleware";
 
-import { newAppointmentSchema } from "../schema/validations.js";
+import {
+  newAppointmentSchema,
+  appointmentDateSchema,
+} from "../schema/validations.js";
 
 const router = express.Router();
 
@@ -25,6 +28,10 @@ router.post(
 
 router.delete("/appointments/:id", deleteAppointment);
 
-router.get("/:id", getDoctorsAppointments);
+router.get(
+  "/:id",
+  validate({ body: appointmentDateSchema }),
+  getDoctorsAppointments
+);
 
 export default router;

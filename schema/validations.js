@@ -1,3 +1,4 @@
+//Used for validation the request body to create a new appointment
 export const newAppointmentSchema = {
   type: "object",
   required: [
@@ -27,8 +28,15 @@ export const newAppointmentSchema = {
   },
 };
 
-//**
-//would need further clarifcation on whether doctor id would be pulled from ui pages params
-//if so we dont need the doctors id as part of the request
-//if not we would need some ui piece once selected to embody or be keyed by doctorId and pass that as part of request
-//for a more durable design I chose to include doctor's id in params and request body
+//Used to validate request to pull all appointments for the provided date for specified doctor
+export const appointmentDateSchema = {
+  type: "object",
+  required: ["date"],
+  properties: {
+    date: {
+      type: "string",
+    },
+  },
+};
+
+//You could also add format validators for uuids and datetimes
