@@ -1,11 +1,17 @@
 import express from "express";
 
-import { getAllDoctors, createAppointment } from "../controllers/doctors.js";
+import {
+  getAllDoctors,
+  createAppointment,
+  deleteAppointment,
+} from "../controllers/doctors.js";
 
 const router = express.Router();
 
 router.get("/", getAllDoctors);
 
-router.post("/:id", createAppointment);
+router.post("/:id/appointments", createAppointment);
+
+router.delete("/appointments/:id", deleteAppointment);
 
 export default router;

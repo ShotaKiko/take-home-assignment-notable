@@ -84,10 +84,20 @@ export const createAppointment = (req, res) => {
     });
   }
 
-  //Additionally if we had persistent data we could do a db check here to see if this patient has a previous appointment with this doctor to determine new patient or follow up.
-  //TODO: mock the above
+  //TODO: Additionally if we had persistent data we could do a db check here to see if this patient has a previous appointment with this doctor to determine new patient or follow up.
 
   console.log(`Appointment [${newAppointmentId}] added to the database.`);
 
   res.send(newAppointmentId);
+};
+
+export const deleteAppointment = (req, res) => {
+  console.log(`appointment with id ${req.params.id} has been deleted`);
+
+  //Here if we had a db instead of filtering we would query for the appointment by id and delete if found. If not return a 404
+  appointments = appointments.filter(
+    (appointment) => appointment.id !== req.params.id
+  );
+
+  res.status(204).send();
 };
