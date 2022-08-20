@@ -101,3 +101,18 @@ export const deleteAppointment = (req, res) => {
 
   res.status(204).send();
 };
+
+export const getDoctorsAppointments = (req, res) => {
+  let allAppointments = [];
+  const doctorsId = req.params.id;
+
+  //in the case of a db we would take the id of the doctor providied in the req params and query for all appointments associated with the doctor id and return an array of objects
+
+  for (let i = 0; i < appointments.length; i++) {
+    if (doctorsId === appointments[i].doctorId) {
+      allAppointments.push(appointments[i]);
+    }
+  }
+
+  res.send(allAppointments);
+};
