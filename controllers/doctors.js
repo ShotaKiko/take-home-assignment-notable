@@ -105,11 +105,17 @@ export const deleteAppointment = (req, res) => {
 export const getDoctorsAppointments = (req, res) => {
   let allAppointments = [];
   const doctorsId = req.params.id;
+  const dayRequested = req.body.date;
 
-  //in the case of a db we would take the id of the doctor providied in the req params and query for all appointments associated with the doctor id and return an array of objects
+  //in the case of a db we would take the id of the doctor provided in the req params and query for all appointments associated with the doctor id and the day provided in the req body
+  // and return an array of objects
 
   for (let i = 0; i < appointments.length; i++) {
-    if (doctorsId === appointments[i].doctorId) {
+    if (
+      doctorsId === appointments[i].doctorId &&
+      DateTime.fromISO(dayRequested).toISODate() ===
+        DateTime.fromISO(appointments[i].dateTime).toISODate() //my formatter formatted it this way? Does this look readable to you =P
+    ) {
       allAppointments.push(appointments[i]);
     }
   }
