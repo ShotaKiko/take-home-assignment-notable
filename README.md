@@ -12,7 +12,7 @@ route: localhost:8080/doctors
 Get a doctor's appointments for a certain day 
 
 route: localhost:8080/doctors/{:id of doctor}                  
-p.s. this doctor id is a hardcoded entry you could use for testing <b8731e39-0831-493b-b905-344d674ab660>
+p.s. this doctor id is a hardcoded entry you could use for testing `b8731e39-0831-493b-b905-344d674ab660`
 
 you need to pass in an ISO8601 string in the request body    
 
@@ -26,14 +26,14 @@ Cancel an appointment
 
 route: localhost:8080/doctors/appointments/{:id of appointment}           
 
-p.s. this appointment id is a hard coded entry you could use for testing <fc8eb7cc-b343-4a36-927b-fcd42a932098>
+p.s. this appointment id is a hard coded entry you could use for testing `fc8eb7cc-b343-4a36-927b-fcd42a932098`
 
 # Creating an appointment
 Create an appointment with a specified doctor at a given time
 
 route: localhost:8080/doctors/{:id of doctor}/appointments
 
-p.s. this doctor id is a hardcoded entry you could use for testing <b8731e39-0831-493b-b905-344d674ab660>
+p.s. this doctor id is a hardcoded entry you could use for testing `b8731e39-0831-493b-b905-344d674ab660`
 
 the body passed in as part of the request 
 
